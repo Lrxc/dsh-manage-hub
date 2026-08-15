@@ -5,12 +5,30 @@
 - **Skills** — 浏览、创建、编辑、删除、开关用户自有技能（存放于 `$DSH_HOME/skills`）。
 - **MCP** — 管理 MCP 服务器配置（stdio / Streamable HTTP），支持增删改与连接测试。启用的服务器写入当前 profile 的 `cordis.patch.yml`，重启后自动连接，工具注册为 `mcp__<server>__<tool>`。
 
+## 截图
+
+**Skills 页面**
+
+![Skills 页面](images/skills.png)
+
+**MCP 页面**
+
+![MCP 页面](images/mcp.png)
+
 ## 安装
 
 要求：已安装带 web profile 的 dsh，且 `PATH` 中有 `pnpm`。
 
+从 GitHub 安装：
+
 ```sh
-dsh plugin --profile web add ./dsh-manage-hub-0.1.0.tgz
+dsh plugin --profile web add https://github.com/Lrxc/dsh-manage-hub.git
+```
+
+或从本地安装包：
+
+```sh
+dsh plugin --profile web add ./dsh-manage-hub.zip
 ```
 
 重启：
