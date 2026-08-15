@@ -2,7 +2,7 @@
 
 一个 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 插件，在网页设置面板中新增两个管理页面：
 
-- **Skills** — 浏览、创建、编辑、删除、开关用户自有技能（存放于 `$DSH_HOME/skills`）。
+- **Skills** — 浏览、导入、编辑、删除、开关用户自有技能（存放于 `$DSH_HOME/skills`）。
 - **MCP** — 管理 MCP 服务器配置（stdio / Streamable HTTP），支持增删改与连接测试。启用的服务器写入当前 profile 的 `cordis.patch.yml`，重启后自动连接，工具注册为 `mcp__<server>__<tool>`。
 
 ## 截图
@@ -52,7 +52,7 @@ dsh --profile web
 | MCP 配置存储 | `$DSH_HOME/mcp-servers.yaml` |
 | MCP 激活 | 在 profile 的 `cordis.patch.yml` 中生成 `mcp-*` 行 |
 
-主机端仅依赖 `yaml` 与 `@modelcontextprotocol/sdk`（dsh 已内置）；浏览器端为手写的 `window.__ModuleLoader__` bundle，无需构建。
+主机端依赖 `yaml`、`@modelcontextprotocol/sdk` 与 `fflate`（均已内置在 dsh 中）；浏览器端为手写的 `window.__ModuleLoader__` bundle，无需构建。
 
 ## 卸载
 
