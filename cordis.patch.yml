@@ -1,0 +1,6 @@
+# dsh bundle layer: mount the manage-hub host plugin (lib/index.js via the
+# package root export). The browser half is a dsh.client row discovered by the
+# same entry name and served to the web UI automatically.
+- insert:
+    - id: manage-hub
+      name: 'dsh-manage-hub'
