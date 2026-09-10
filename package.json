@@ -3,6 +3,17 @@
   "version": "0.1.0",
   "description": "DeepSeek Harness web plugin: settings pages for managing user skills and MCP servers",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lrxc/dsh-manage-hub.git"
+  },
+  "homepage": "https://github.com/Lrxc/dsh-manage-hub#readme",
+  "bugs": {
+    "url": "https://github.com/Lrxc/dsh-manage-hub/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
@@ -13,7 +24,8 @@
     "lib",
     "cordis.patch.yml",
     "images",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "dsh": {
     "bundle": {
