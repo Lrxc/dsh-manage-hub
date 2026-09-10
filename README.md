@@ -19,6 +19,12 @@
 
 要求：已安装带 web profile 的 dsh，且 `PATH` 中有 `pnpm`。
 
+从 npm 安装：
+
+```
+dsh plugin --profile web add dsh-manage-hub
+```
+
 从 GitHub 安装：
 
 ```sh
@@ -38,23 +44,6 @@ dsh plugin --profile web add file:./dsh-manage-hub
 dsh --profile web
 ```
 
-`dsh plugin` 会在 profile 目录执行 `pnpm add`，并自动把包加入 `dsh.profile.bundles`（因为本包声明了 `dsh.bundle` 补丁），无需手动改补丁。
-
-> 若此前对 `dsh-host-apiproxy`、`dsh-client-connection`、`dsh-client-ui-settings-general` 做过手动补丁，请先回退，否则设置面板会出现重复的 Skills/MCP 区块。
-
-## 结构
-
-| 模块 | 位置 |
-| ---- | ---- |
-| 主机插件 | `lib/index.js` — `/dsh-manage` 下的 HTTP JSON 路由 |
-| 浏览器插件 | `lib/client.js` — 通过 `fetch` 实现的设置区块 |
-| Profile 层 | `cordis.patch.yml`（经 `dsh.bundle.patch` 声明） |
-| 技能存储 | `$DSH_HOME/skills/<name>/SKILL.md` |
-| MCP 配置存储 | `$DSH_HOME/mcp-servers.yaml` |
-| MCP 激活 | 在 profile 的 `cordis.patch.yml` 中生成 `mcp-*` 行 |
-
-主机端依赖 `yaml`、`@modelcontextprotocol/sdk` 与 `fflate`（均已内置在 dsh 中）；浏览器端为手写的 `window.__ModuleLoader__` bundle，无需构建。
-
 ## 卸载
 
 ```sh
@@ -62,6 +51,27 @@ dsh plugin --profile web remove dsh-manage-hub
 ```
 
 如不再需要，删除 profile `cordis.patch.yml` 中生成的 `mcp-*` 行及 `$DSH_HOME/mcp-servers.yaml`。
+
+
+
+## 开发
+
+发布到npm
+
+```shell
+# 1. 补 package.json 元数据 + 新增 LICENSE 文件
+# 2. 确认包名可用
+npm view dsh-manage-hub version
+# 3. 检查 tarball（务必含 cordis.patch.yml）
+npm pack --dry-run
+# 4. 发布（稳定版，不要 prerelease）
+npm publish
+# 5. 安装并重启
+dsh plugin --profile web add dsh-manage-hub
+dsh web
+```
+
+
 
 ## License
 
