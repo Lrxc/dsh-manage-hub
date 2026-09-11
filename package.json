@@ -1,6 +1,6 @@
 {
-  "name": "dsh-manage-hub",
-  "version": "0.1.0",
+  "name": "dsh-mcp-skills",
+  "version": "0.2.0",
   "description": "DeepSeek Harness web plugin: settings pages for managing user skills and MCP servers",
   "type": "module",
   "repository": {
