@@ -67,16 +67,14 @@ dsh plugin --profile web remove dsh-mcp-skills
 发布到npm
 
 ```shell
-# 1. 补 package.json 元数据 + 新增 LICENSE 文件
+# 1. 用官方 registry 重新登录（务必带 --registry，否则会登到镜像站）
+npm login --registry=https://registry.npmjs.org --auth-type=web
 # 2. 确认包名可用
 npm view dsh-mcp-skills version
 # 3. 检查 tarball（务必含 cordis.patch.yml）
 npm pack --dry-run
 # 4. 发布（稳定版，不要 prerelease）
 npm publish
-# 5. 安装并重启
-dsh plugin --profile web add dsh-mcp-skills
-dsh web
 ```
 
 
