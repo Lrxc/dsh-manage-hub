@@ -1,6 +1,6 @@
 {
   "name": "dsh-mcp-skills",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "DeepSeek Harness web plugin: settings pages for managing user skills and MCP servers",
   "type": "module",
   "repository": {
@@ -41,9 +41,13 @@
     "yaml": "^2.4.0"
   },
   "peerDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
     "@modelcontextprotocol/sdk": "^1.30.0"
   },
   "peerDependenciesMeta": {
+    "@modelcontextprotocol/client": {
+      "optional": true
+    },
     "@modelcontextprotocol/sdk": {
       "optional": true
     }
